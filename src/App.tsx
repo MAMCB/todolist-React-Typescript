@@ -28,7 +28,7 @@ function App() {
         text: newToDo,
         isCompleted: false,
       };
-      setToDos([...toDos, toDo]);
+      setToDos((prevToDos)=>[...prevToDos, toDo]);
       setNewToDo("");
       if (textInput.current) {
         textInput.current.value = "";
