@@ -1,11 +1,26 @@
 
 .complete{
+  margin-top: 2rem;
   display:flex;
-    text-decoration: line-through;
-    color: #ccc;
+  justify-content: space-around;
+  text-decoration: line-through;
+  color: #ccc;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow:2px 2px 2px 1px rgb(0 0 0 / 20%);
+  width: 50%;
 }
 
 .incomplete{
+  margin-top: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow:2px 2px 2px 1px rgb(0 0 0 / 20%);
+  width: 50%;
   display:flex;
-    color: #333;
+  justify-content: space-around;
+  color: #333;
 }
+
