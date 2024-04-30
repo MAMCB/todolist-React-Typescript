@@ -1,11 +1,13 @@
 interface NewToDoProps {
-    newToDo: string,
-  createNewToDo: (e: React.FormEvent<HTMLInputElement>) => void,
-  handleNewToDo: () => void}
+  newToDo: string;
+  textInput: React.RefObject<HTMLInputElement>,
+  createNewToDo: (e: React.FormEvent<HTMLInputElement>) => void;
+  handleNewToDo: () => void;
+}
 
 
 const NewToDo: React.FC<NewToDoProps > = (
-    {newToDo, createNewToDo, handleNewToDo}
+    {newToDo,textInput, createNewToDo, handleNewToDo}
 ) => {
   return (
     <div>
@@ -14,9 +16,7 @@ const NewToDo: React.FC<NewToDoProps > = (
         type="text"
         placeholder={newToDo ? newToDo : "Enter a to do"}
         onChange={createNewToDo}
-        onClick={(e: React.FormEvent<HTMLInputElement>) =>
-          (e.currentTarget.value = "")
-        }
+        ref={textInput}
       />
       <button onClick={handleNewToDo}>Add</button>
     </div>

@@ -1,12 +1,13 @@
 import ToDoList from './components/ToDoList'
 import NewToDo from './components/NewToDo'
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { toDos } from "./utils/interfaces";
 import './App.css'
 
 function App() {
    const [toDos, setToDos] = useState<toDos[]>([]);
    const [newToDo, setNewToDo] = useState<string>("");
+   const textInput = useRef<HTMLInputElement>(null);
 
    const handleComplete = (id: number) => {
      const updatedToDos = toDos.map((toDo) => {
@@ -29,6 +30,9 @@ function App() {
       };
       setToDos([...toDos, toDo]);
       setNewToDo("");
+      if (textInput.current) {
+        textInput.current.value = "";
+      }
     };
 
     const createNewToDo = (e: React.FormEvent<HTMLInputElement>) => {
@@ -38,7 +42,7 @@ function App() {
 
   return (
     <>
-    <NewToDo newToDo={newToDo} createNewToDo={createNewToDo} handleNewToDo = {handleNewToDo} />
+    <NewToDo newToDo={newToDo} textInput={textInput} createNewToDo={createNewToDo} handleNewToDo = {handleNewToDo} />
      <ToDoList toDos={toDos} handleComplete={handleComplete} />
     </>
   )
